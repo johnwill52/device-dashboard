@@ -6,5 +6,18 @@
   ],
   "plugins": [
     "react-hot-loader/babel"
-  ]
+  ],
+  "env": {
+    "production": {
+      "plugins": [
+        ["strip-function-call", {
+          "strip": [
+            "log.debug",
+            "log.info",
+            "log.error"
+          ]
+        }]
+      ]
+    }
+  }
 }

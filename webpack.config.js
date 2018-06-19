@@ -22,7 +22,21 @@ module.exports = {
             template: './index.html',
             inject: 'body'
         }),
-        new ExtractTextPlugin('css/[name].css')
+        new ExtractTextPlugin('css/[name].css'),
+        new webpack.DefinePlugin({
+            APP: {
+                API: {
+                    DEVICE: JSON.stringify("/device"),
+                    VERSION: JSON.stringify("1.0.0")
+                },
+                CLIENT: {
+                    VERSION: JSON.stringify("1.0.0")
+                },
+                LOG: {
+                    LEVEL: JSON.stringify("DEBUG")
+                }
+            }
+        })
     ],
     module: {
         rules: [{
