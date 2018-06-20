@@ -1,6 +1,6 @@
-const DEBUG = "DEBUG"; 
-const INFO = "INFO";
-const ERROR = "ERROR";
+const DEBUG = 'DEBUG'; 
+const INFO = 'INFO';
+const ERROR = 'ERROR';
 
 const LOG_LEVELS = [
     DEBUG,

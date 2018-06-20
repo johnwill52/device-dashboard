@@ -5,6 +5,17 @@ import { AppContainer } from 'react-hot-loader';
 import styles from '../styles.css';
 import App from './App';
 import log from './log';
+import createServer from './server';
+import http from './http';
+
+const server = createServer({
+    actions: {},
+    api: APP.API,
+    http
+});
+
+server.getDeviceReading();
+server.patchDeviceReading({ name: 'acceleration_y', active: 'true' })
 
 function render(Component) {
     ReactDOM.render(

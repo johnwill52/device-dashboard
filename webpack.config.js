@@ -9,6 +9,7 @@ module.exports = {
             'react-hot-loader/patch',
             'webpack-dev-server/client?http://localhost:3333',
             'webpack/hot/only-dev-server',
+            'babel-polyfill',
             './src/index.js'
         ]
     },
@@ -26,14 +27,15 @@ module.exports = {
         new webpack.DefinePlugin({
             APP: {
                 API: {
-                    DEVICE: JSON.stringify("/device"),
-                    VERSION: JSON.stringify("1.0.0")
+                    URL: JSON.stringify('http://localhost:8888'),
+                    DEVICE: JSON.stringify('/device'),
+                    VERSION: JSON.stringify('1.0.0')
                 },
                 CLIENT: {
-                    VERSION: JSON.stringify("1.0.0")
+                    VERSION: JSON.stringify('1.0.0')
                 },
                 LOG: {
-                    LEVEL: JSON.stringify("DEBUG")
+                    LEVEL: JSON.stringify('DEBUG')
                 }
             }
         })
