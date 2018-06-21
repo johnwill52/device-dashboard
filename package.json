@@ -7,7 +7,8 @@
         "start": "run-p start:api start:app",
         "start:app": "node dev-server.js",
         "start:api": "node api-server.js",
-        "test:app": "jest --watch --colors"
+        "test:app": "jest --colors",     
+        "test:app:dev": "jest --watch --colors"
     },
     "license": "ISC",
     "dependencies": {
