@@ -1,0 +1,109 @@
+.app > * {
+    margin: 0.5em;
+    padding: 0.5em;
+}
+
+.app img + * {
+    margin: 1em;
+    opacity: 0.75;
+}
+
+.app img {
+    width: 200px;
+}
+
+.app > .search, .app > .counter {
+    float: left;
+}
+
+.app > .search {
+    width: 200px;
+}
+
+.app > .counter > * {
+    color: white;
+    padding: 1em;
+    border-radius: 10px;
+}
+
+.app > .counter > *:first-child {
+    margin-right: 1em;
+}
+
+.app > .counter > * > *:first-child {
+    margin-right: 1em;
+}
+
+.app > .counter> .active {
+    background-color: green;
+}
+
+.app > .counter > .inactive {
+    background-color: red;
+}
+
+.app .th, .app .tr {
+    clear: both;
+}
+
+.app .tc {
+    line-height: 2em;
+    height: 2.5em;
+}
+
+.app .th .tc {
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+.app .tr.disabled {
+    opacity: 0.5;
+}
+
+.app .tr:not(.disabled) {
+    cursor: pointer;
+}
+
+.app .tc {
+    float: left;
+    padding: 0.25em;
+}
+
+.app .tc.name {
+    width: 200px;
+}
+
+.app .tc.unit {
+    width: 50px;
+}
+
+.app .tc.value {
+    width: 200px;
+    text-align: right;
+}
+
+.app .tc.timestamp {
+    width: 200px;
+    text-align: right;
+}
+
+.app .tc.active {
+    width: 200px;
+    text-align: center;
+}
+
+.app .tc.active .active {
+    color: green;
+}
+
+.app .tc.active .inactive {
+    color: red;
+}
+
+@media (max-width: 900px) {
+    .app .tc.unit,
+    .app .tc.value,
+    .app .tc.timestamp {
+        display: none;
+    }
+}

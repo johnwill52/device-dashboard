@@ -41,15 +41,21 @@ module.exports = {
         })
     ],
     module: {
-        rules: [{
-            test: /\.(js)$/,
-            use: 'babel-loader',
-            include: path.join(__dirname, 'src'),
-        }, {
-      test: /\.css$/,
-      use: ['css-hot-loader'].concat(ExtractTextPlugin.extract({
-        use: 'css-loader'
-      })),
-    },]
+        rules: [
+            {
+                test: /\.(js|jsx)$/,
+                use: 'babel-loader',
+                include: path.join(__dirname, 'src'),
+            }, 
+            {
+                test: /\.css$/,
+                use: ['css-hot-loader'].concat(ExtractTextPlugin.extract({
+                    use: 'css-loader'
+                })),
+            }
+        ]
+    },
+    resolve: {
+        extensions: ['.js', '.jsx']
     }
 };

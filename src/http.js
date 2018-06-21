@@ -6,25 +6,27 @@ const baseHeaders = {
     'Content-Type': 'application/json'
 };
 
-const http = { 
-    async get(url) {
-        // TODO: implement error handling which is not happening with the 
-        // current setup running the dev server before the client app
-        const response = await fetch(url, {
-            method: 'GET',
-            headers: { ...baseHeaders }
-        });
-        return await response.json();
-    }, 
-    async patch(url) {
-        const response = await fetch(url, {
-            method: 'PATCH',
-            headers: { ...baseHeaders }
-        });
-        return response.status === RESPONSE.SUCCESS;
-    } 
-};
+function createHttp({ log }) {
+    return { 
+        async get(url) {
+            log.info('GET request', url);
+            const response = await fetch(url, {
+                method: 'GET',
+                headers: { ...baseHeaders }
+            });
+            log.info('GET response', url, response);
+            return await response.json();
+        }, 
+        async patch(url) {
+            log.info('PATCH request', url);
+            const response = await fetch(url, {
+                method: 'PATCH',
+                headers: { ...baseHeaders }
+            });
+            log.info('PATCH response', url, response);
+            return response.status === RESPONSE.SUCCESS;
+        } 
+    };
+}
 
-
-
-export default http;
+export default createHttp;

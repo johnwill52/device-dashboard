@@ -28,18 +28,18 @@ describe('server', () => {
         });
     })
 
-    describe('getDeviceReading', () => {
+    describe('getDeviceReadings', () => {
 
         it('calls http get on device resource', () => {
-            server.getDeviceReading();
+            server.getDeviceReadings();
             expect(http.get).toHaveBeenCalledWith(`${api.URL}${api.DEVICE}`);
         });
 
-        it('when http get respond with data returns data', done => {
+        it('when http get responds with data returns data', done => {
             expect.assertions(1);
 
             const data = 'any data' ;
-            server.getDeviceReading().then(response => {
+            server.getDeviceReadings().then(response => {
                 expect(response).toBe(data);
                 done();
             });
@@ -61,7 +61,7 @@ describe('server', () => {
         });
 
         it(
-            'when http patch respond with patched status returns status', 
+            'when http patch responds with patched status returns status', 
             done => {
             expect.assertions(1);
 

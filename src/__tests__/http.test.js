@@ -1,6 +1,10 @@
-import http from '../http';
+import createHttp from '../http';
 
 describe('http', () => {
+
+    const http = createHttp({ 
+        log: { info: () => {} }
+    });
 
     const url = 'any url';
     let respond;
@@ -67,7 +71,7 @@ describe('http', () => {
             );
         });
 
-        it('when fetch succeeds return true', async done => {
+        it('when fetch succeeds returns true', async done => {
             expect.assertions(1);
 
             http.patch(url).then(response => {
@@ -79,7 +83,7 @@ describe('http', () => {
             respond(200);
         });
 
-        it('when fetch fails return false', async done => {
+        it('when fetch fails returns false', async done => {
             expect.assertions(1);
 
             http.patch(url).then(response => {

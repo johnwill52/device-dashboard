@@ -1,6 +1,6 @@
 function createServer({ api, http }) {
     return {
-        async getDeviceReading() {
+        async getDeviceReadings() {
             const { data } = await http.get(`${api.URL}${api.DEVICE}`);
             return data;
         },
